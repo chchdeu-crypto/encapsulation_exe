@@ -41,7 +41,7 @@ p.username="ab"
 p.username="alexis"
 print(p.username)
 
-#mission 
+#mission 4
 class UserProfile:
     def __init__(self,username):
         self.__username=username
@@ -61,7 +61,21 @@ chaim.follow()
 chaim.unfollow()
 print(chaim.followers)
 
-        
-
+#mission 5
+class UserProfile:
+    def __init__(self,username,bio):
+        self.username=username
+        self.__bio=bio
+    @property
+    def bio(self):
+        return self.__bio
+class VerifiedUser(UserProfile):
+    def __init__(self, username, bio,badge):
+        super().__init__(username, bio)
+        self.badge=badge
+    def full_dicreption(self):
+        print(f"{self.username} [{self.badge}]: {self.bio}")
+chaim=VerifiedUser("caleb","singer and song writer","V")
+chaim.full_dicreption()
 
         
