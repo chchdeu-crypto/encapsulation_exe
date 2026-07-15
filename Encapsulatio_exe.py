@@ -142,6 +142,45 @@ post.like("yossi")
 post.unlike("natan")
 post.status()
 
-
+#mission 9
+class UserProfile:
+    def __init__(self,username):
+        self.username=username
+        self.__is_public=True
+        self.__show_email=False
+        self.__show_age=False
+    @property
+    def is_public(self):
+        return self.__is_public
+    @is_public.setter
+    def is_public(self,field):
+        if isinstance(field,bool):
+            self.__is_public=field
+        else:
+            print(f"{field} must be True or False.")
+    @property
+    def show_email(self):
+        return self.__show_email
+    @show_email.setter
+    def show_email(self,field):
+        if isinstance(field,bool):
+            self.__show_email=field
+        else:
+            print(f"{field} must be True or False.")
+    @property
+    def show_age(self):
+        return self.__show_age
+    @show_age.setter
+    def show_age(self,field):
+        if isinstance(field,bool):
+            self.__show_age=field
+        else:
+            print(f"{field} must be True or False.")
+    def privacy_summary(self):
+        print(f"is public: {self.is_public} | show email: {self.show_email} | show age: {self.show_age}")
+profile=UserProfile("chaim")
+profile.is_public="yes"
+profile.show_email=True
+profile.privacy_summary()
 
         
