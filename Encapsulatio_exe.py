@@ -23,6 +23,24 @@ class UserProfile:
 bob=UserProfile("bob","bob@mail.com")
 print(bob.username,bob.email)
     
+#mission 3
+class UserProfile:
+    def __init__(self,username):
+        self.__username=username
+    @property
+    def username(self):
+        return self.__username
+    @username.setter
+    def username(self,username):
+        if len(username)>=3:
+            self.__username=username
+        else:
+            print("Username too short")
+p=UserProfile("alice")
+p.username="ab"
+p.username="alexis"
+print(p.username)
+
         
 
 
