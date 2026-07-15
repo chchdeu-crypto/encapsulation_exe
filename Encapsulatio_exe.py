@@ -78,4 +78,25 @@ class VerifiedUser(UserProfile):
 chaim=VerifiedUser("caleb","singer and song writer","V")
 chaim.full_dicreption()
 
+#mission 6
+class UserProfile:
+    def __init__(self,username,age):
+        self.username=username
+        self.__age=age
+    @property
+    def age(self):
+        return self.__age
+    @age.setter
+    def age(self,age):
+        if 120>=age>=13:
+            self.__age=age
+        else:
+            print("invalid age")
+p=UserProfile("dan",18)
+p.age=10  
+p.age=200  
+p.age=25
+print(p.age) 
+
+
         
