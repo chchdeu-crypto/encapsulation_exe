@@ -183,4 +183,53 @@ profile.is_public="yes"
 profile.show_email=True
 profile.privacy_summary()
 
-        
+#mission 10
+class UserAccount:
+    def __init__(self,username, email, password, age):
+        self.__username=username
+        self.__email=email
+        self.__password=password
+        self.__age=age
+        self._logic_count=0
+    @property
+    def username(self):
+        return self.__username
+    @username.setter
+    def username(self,username):
+        if len(username)>=3:
+            self.__username=username
+    @property
+    def email(self):
+        return self.__email
+    @email.setter
+    def email(self,email):
+        if "@" in email:
+            self.__email=email
+    @property
+    def age(self):
+        return self.__age
+    @age.setter
+    def age(self,age):
+        if 120<age>13:
+            self.__age=age
+    def check_passowrd(self,attempt):
+        return "welcome" if attempt==self.__password else False
+    def change_password(self,old,new):
+        if old==self.__password:
+            self.__password=new
+        else:
+            print("incorrect old password ")
+    def login(self,password):
+        if password==self.__password:
+            self._logic_count+=1
+        else:
+            print("Login failed")
+    def account_summary(self):
+        print(f"{self.username} | email: {self.email} | age: {self.age} | logins: {self._logic_count}")
+account=UserAccount("user1","u@gmail.com","pass123",20)
+account.login(123)
+account.login("aaa")
+account.login("pass123")
+account.email="new@email.com"
+account.age=22
+account.account_summary()
