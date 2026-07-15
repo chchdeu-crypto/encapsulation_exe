@@ -98,5 +98,24 @@ p.age=200
 p.age=25
 print(p.age) 
 
+#mission 7
+class UserAccount:
+    def __init__(self,username,password):
+        self.username=username
+        self.__password=password
+    def check_passowrd(self,attempt):
+        return True if attempt==self.__password else False
+    def change_password(self,old,new):
+        if old==self.__password:
+            self.__password=new
+        else:
+            print("incorrect old password ")
+admin=UserAccount("admin","secret")
+print(admin.check_passowrd("wrong"))
+admin.change_password("secret","new123")
+
+
+
+
 
         
