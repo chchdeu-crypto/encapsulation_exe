@@ -114,7 +114,33 @@ admin=UserAccount("admin","secret")
 print(admin.check_passowrd("wrong"))
 admin.change_password("secret","new123")
 
-
+#mission 8
+class Post:
+    def __init__(self,author,conect):
+        self.author=author
+        self.conect=conect
+        self.__likes=0
+        self.__liked_by=[]
+    @property
+    def likes(self):
+        return self.__likes
+    def like(self,username):
+        if username not in self.__liked_by:
+            self.__liked_by.append(username)
+            self.__likes+=1
+    def unlike(self,username):
+        if username in self.__liked_by:
+            self.__liked_by.remove(username)
+            self.__likes-=1
+    def status(self):
+        print(f"post by {self.author}: {self.likes} likes")
+post=Post("cr7","hello")
+post.like("alice")
+post.like("yossi")
+post.like("natan")
+post.like("yossi")
+post.unlike("natan")
+post.status()
 
 
 
