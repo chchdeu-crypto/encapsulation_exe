@@ -41,6 +41,26 @@ p.username="ab"
 p.username="alexis"
 print(p.username)
 
+#mission 
+class UserProfile:
+    def __init__(self,username):
+        self.__username=username
+        self.__followers=0
+    @property
+    def followers(self):
+        return self.__followers
+    def follow(self):
+        self.__followers+=1
+    def unfollow(self):
+        if self.__followers>0:
+            self.__followers-=1
+chaim=UserProfile("chaim")
+chaim.follow()
+chaim.follow()
+chaim.follow()
+chaim.unfollow()
+print(chaim.followers)
+
         
 
 
